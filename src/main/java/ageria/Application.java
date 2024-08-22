@@ -32,10 +32,19 @@ public class Application {
         Location campNou = new Location ("Camp Nou", "Barcellona");
         Location granillo = new Location ("Granillo", "Reggio Calabria");
 
+        Person winner1 = new Person("Andrea", "Geria", "ageria20@gmail.com",LocalDate.of(1995, 4, 30), GenderType.MALE );
+        Person winner2 = new Person("Desiree", "Geria", "dgeria@gmail.com",LocalDate.of(1990, 2, 3), GenderType.FEMALE );
+
       /*  ld.save(sanSiro);
         ld.save(bernabeu);
         ld.save(campNou);
         ld.save(granillo);*/
+
+        pd.save(winner1);
+        pd.save(winner2);
+
+        Person winnerFromDb = pd.getById("cb118020-e617-4263-b96b-f0e6c706aac1");
+        Person winner2FromDb = pd.getById("de841ec4-cc23-4ac9-8832-2b9377e947e7");
 
 
         Location lfromDb = ld.getById("250ab1e8-accd-43c2-aeec-35cb62b30486");
@@ -124,6 +133,27 @@ public class Application {
                 false
         );
 
+
+        AthleticsComp comp1 = new AthleticsComp(
+                "100m Sprint",
+                LocalDate.of(2024, 9, 10),
+                "100 metri piani maschili",
+                EventType.PUBLIC,
+                8,
+                l2fromDb,
+                winnerFromDb
+        );
+
+        AthleticsComp comp2 = new AthleticsComp(
+                "400m Relay",
+                LocalDate.of(2024, 10, 5),
+                "Staffetta 4x400 femminile",
+                EventType.PRIVATE,
+                16,
+                lfromDb,
+                winner2FromDb
+        );
+
         /*// Match event saved on Table Event
         ed.save(match1);
         ed.save(match2);
@@ -134,7 +164,10 @@ public class Application {
         ed.save(concert1);
         ed.save(concert2);*/
 
-
+        System.out.println("Home Match");
+        ed.getHomeMatchWon().forEach(System.out::println);
+        System.out.println("Guest Match");
+        ed.getGuestMatchWon().forEach(System.out::println);
 
 
 
