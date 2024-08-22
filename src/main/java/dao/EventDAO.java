@@ -2,6 +2,7 @@ package dao;
 
 import entities.Concert;
 import entities.Event;
+import entities.FootballMatch;
 import enums.GenresType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -52,5 +53,17 @@ public class EventDAO {
         query.setParameter(":g", genre);
         return query.getResultList();
     }
+
+    public List<FootballMatch> getHomeMatchWon(){
+        TypedQuery<FootballMatch> query = em.createQuery("SELECT fm FROM FootballMatch fm WHERE homeScore > guestsScore", FootballMatch.class);
+        return query.getResultList();
+    }
+
+    public List<FootballMatch> getGuestMatchWon(){
+        TypedQuery<FootballMatch> query = em.createQuery("SELECT fm FROM FootballMatch fm WHERE guestsScore > homeScore", FootballMatch.class);
+        return query.getResultList();
+    }
+
+
 
 }

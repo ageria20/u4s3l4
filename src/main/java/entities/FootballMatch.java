@@ -18,10 +18,10 @@ public class FootballMatch extends Event{
     @Column(nullable = false)
     private String winner;
 
-    @Column (nullable = false)
+    @Column (name="homeScore",nullable = false)
     private int homeScore;
 
-    @Column(nullable = false)
+    @Column(name="guestsScore", nullable = false)
     private int guestsScore;
 
     public FootballMatch(){}
