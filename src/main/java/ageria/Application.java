@@ -169,6 +169,8 @@ public class Application {
         System.out.println("Guest Match");
         ed.getGuestMatchWon().forEach(System.out::println);
 
+        System.out.println(comp1);
+
 
 
 

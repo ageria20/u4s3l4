@@ -108,4 +108,18 @@ public class Person {
     public void setPartecipationList(List<Partecipation> partecipationList) {
         this.partecipationList = partecipationList;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", mail='" + mail + '\'' +
+                ", birthDate=" + birthDate +
+                ", gender=" + gender +
+                ", winners=" + winners +
+                ", partecipationList=" + partecipationList +
+                '}';
+    }
 }
